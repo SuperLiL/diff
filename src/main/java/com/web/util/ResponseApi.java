@@ -13,6 +13,7 @@ public class ResponseApi {
         System.out.println("current param is: " + params);
         System.out.println("current headers is: " + headers);
         System.out.println("current cookies is: " + cookies);
+
     }
 
     //传参时json的post请求
