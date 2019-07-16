@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>testDiff</title>
+</head>
+<script src="js/vuejs-2.5.16.js"></script>
+
+<body>
+<script type="text/javascript" src="js/jquery-1.6.4.js"></script>
+<form action="http://localhost:8333/check1">
+    <table>
+        <tr>
+            <td>
+                <input type="text" id="requestUrl">
+            </td>
+            <td>
+                <input type="text" id="requestUrl2">
+            </td>
+            <td>
+                <input type="submit">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="app"></div>
+                 <div th:text="${msg}"></div><br/>
+            </td>
+        </tr>
+    </table>
+
+</form>
+</body>
+<script>
+    var vue = new vue({
+        el: "#app",
+        data: {
+
+        }
+    })
+</script>
+</html>

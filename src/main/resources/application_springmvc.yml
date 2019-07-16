@@ -1,0 +1,4 @@
+mvc:
+  view:
+    prefix: /
+    suffix: .html
