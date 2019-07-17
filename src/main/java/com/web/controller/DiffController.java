@@ -59,12 +59,12 @@ public class DiffController {
     public Result byJsonMethod(
             @RequestParam("requestUrl") String requestUrl,
             @RequestParam("requestUrl2") String requestUrl2,
-            @RequestParam(value = "params1",defaultValue="null") Map params1,
-            @RequestParam(value = "params2",defaultValue="null") Map params2,
-            @RequestParam(value = "headers1",defaultValue="null") Map headers1,
-            @RequestParam(value = "headers2",defaultValue="null") Map headers2,
-            @RequestParam(value = "userCookies1",defaultValue="null") Map userCookies1,
-            @RequestParam(value = "userCookies2",defaultValue="null") Map userCookies2) {
+            @RequestParam(required = false) Map params1,
+            @RequestParam(required = false)  Map params2,
+            @RequestParam(required = false)  Map headers1,
+            @RequestParam(required = false)  Map headers2,
+            @RequestParam(required = false)  Map userCookies1,
+            @RequestParam(required = false)  Map userCookies2) {
         String response_body1 = responseApi.Get(requestUrl, params1, headers1, userCookies1);
         String response_body2 = responseApi.Get(requestUrl2, params2, headers2, userCookies2);
         return resultByString(response_body1,response_body2);
@@ -97,9 +97,15 @@ public class DiffController {
     @ResponseBody
     public Result byJsonMethodPost(
             @RequestParam("requestUrl") String requestUrl,
-            @RequestParam("requestUrl2") String requestUrl2) {
-        String response_body1 = responseApi.Post(requestUrl,  "",null,null);
-        String response_body2 = responseApi.Post(requestUrl2,"",null,null);
+            @RequestParam("requestUrl2") String requestUrl2,
+            @RequestParam(required = false) Map params1,
+            @RequestParam(required = false)  Map params2,
+            @RequestParam(required = false)  Map headers1,
+            @RequestParam(required = false)  Map headers2,
+            @RequestParam(required = false)  Map userCookies1,
+            @RequestParam(required = false)  Map userCookies2) {
+        String response_body1 = responseApi.Post(requestUrl,  params1,headers1,userCookies1);
+        String response_body2 = responseApi.Post(requestUrl2,params2,headers2,userCookies2);
         return resultByString(response_body1,response_body2);
     }
 }
