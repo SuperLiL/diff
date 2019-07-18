@@ -24,7 +24,27 @@ import java.util.Map;
 public class DiffServiceImp implements DiffService {
     @Autowired
     private DiffTools diffTools;
-    
+
+    @Override
+    public JSONObject getResultByJson(JSONArray json1, JSONArray json2) {
+        //        0.方法返回结果
+        JSONObject resultJson = new JSONObject();
+        JSONObject resultJson_final = new JSONObject();
+
+        resultJson_final.put("data_api_1",json1);
+        resultJson_final.put("data_api_2",json2);
+//        1、分解第一层
+        int i = 0;
+        int j = 1;
+
+
+        resultJson = generalMethod(json1, json2, i+1,j,resultJson,"init");
+
+        resultJson_final.put("diff",resultJson);
+        return resultJson_final;
+    }
+
+
     /**
      * 将请求的URL变成Json格式传入，输出<错误1：具体位置>这种map集合的格式
      * @param json

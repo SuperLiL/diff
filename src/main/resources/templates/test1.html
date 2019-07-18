@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>testDiff</title>
+</head>
+<script src="js/vuejs-2.5.16.js"></script>
+
+<body>
+<script type="text/javascript" src="js/jquery-1.6.4.js"></script>
+<form action="http://localhost:8333/diff/checkByString" method="post">
+    <table>
+        <tr>
+            <td>
+                    json1：<input type="text" name="requestBody1">
+            </td>
+            <td>
+                json2：<input type="text" name="requestBody2">
+            </td>
+            <td>
+                <input type="submit" value="提交">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <div class="app"></div>
+                 <div th:text="${msg}"></div><br/>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <div th:text="${msg1}"></div><br/>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                url1请求结果：<div th:text="${json1}"></div><br/>
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+            url2请求结果:<div th:text="${json2}"></div><br/>
+            </td>
+        </tr>
+
+    </table>
+     <div th:each="resultMap : ${result}" th:text="${resultMap.key}"></div>
+    <div th:each="resultMap : ${result}" th:text="${resultMap.value}"></div>
+</form>
+</body>
+<script>
+    var vue = new vue({
+        el: "#app",
+        data: {
+
+        }
+    })
+</script>
+</html>

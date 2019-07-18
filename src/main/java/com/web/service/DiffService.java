@@ -20,7 +20,7 @@ public interface DiffService {
 
     public Map<String,String> getResultByJson(String json1,String json2);
     public JSONObject getResultByJson(JSONObject json1,JSONObject json2);
-
+    public JSONObject getResultByJson(JSONArray json1,JSONArray json2);
     /**
      * 迭代遍历判断
      * @param o1
