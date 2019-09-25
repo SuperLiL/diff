@@ -1,5 +1,10 @@
 package com.web.pojo;
 
+import com.fasterxml.jackson.databind.util.LinkedNode;
+
+import java.util.LinkedList;
+import java.util.Stack;
+
 public class User {
     private Long user_id;
     private String user_name;
@@ -27,6 +32,7 @@ public class User {
 
     public void setUser_age(Integer user_age) {
         this.user_age = user_age;
+        Stack<Integer> stack1 = new Stack<Integer>();
     }
 
     public User(Long user_id, String user_name, Integer user_age) {
@@ -42,5 +48,7 @@ public class User {
                 ", user_name='" + user_name + '\'' +
                 ", user_age=" + user_age +
                 '}';
+
     }
+
 }

@@ -12,5 +12,9 @@ public class WebApplicationTests {
     @Test
     public void contextLoads() {
     }
+    @Test
+    public void testOne(){
+        System.out.println(2 << 1);//运算高效首选位运算
+    }
 
 }
